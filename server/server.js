@@ -33,31 +33,14 @@ app.use(cors());
 const productRoutes = require("./routes/product");
 const categoryRoutes = require("./routes/category")
 const ownerRoutes = require("./routes/owner")
+const UserRoutes = require("./routes/auth");
+const ReviewRoutes = require("./routes/review");
 
 app.use("/api", productRoutes);
 app.use("/api", categoryRoutes);
 app.use("/api", ownerRoutes);
-
-
-// app.get("/", (req, res) =>{
-//     res.json("Welcome");
-// });
-
-// app.post("/", (req, res) =>{
-//     let user = new User();
-//     user.name = req.body.name;
-//     user.email = req.body.email;
-//     user.password = req.body.password;
-
-//     user.save(err => {
-//         if(err){
-//             res.json(err);
-//         }else{
-//             res.json("Successfully saved");
-//         }
-//     });
-// });
-
+app.use("/api", UserRoutes);
+app.use("/api", ReviewRoutes);
 
 app.listen(3000, err =>{
     if(err){

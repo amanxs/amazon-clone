@@ -10,6 +10,7 @@ router.post("/owners", upload.single("photo"), async(req, res) => {
         owner.about = req.body.about;
         owner.photo = req.file.location;
 
+
         await owner.save();
         res.json({
             status: true,
